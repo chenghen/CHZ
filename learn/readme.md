@@ -20,6 +20,7 @@
 + 一级标题
   
 |[] (https://upload-images.jianshu.io/upload_images/5545609-14761f94b87f8ac4.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
-[盒子1](https://github.com/chenghen/CHZ.github.io/blob/master/learn/方盒子/2.cube.html)
-[盒子2](https://github.com/chenghen/CHZ.github.io/blob/master/learn/方盒子/index.html)
+
+[盒子1](https://github.com/chenghen/CHZ.github.io/learn/方盒子/2.cube.html)
+[盒子2](https://github.com/chenghen/CHZ.github.io/learn/方盒子/index.html)
 
