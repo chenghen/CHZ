@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>Bootstrap 101 Template</title>
+
+		<!-- Bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.left {
+				float: left;
+			}
+
+			.right {
+				float: right;
+			}
+
+			.c-nav {
+				width: 100%;
+				padding: 15px 0px;
+			}
+
+			.row .c-thuan {
+
+				width: 130px;
+				height: 70px;
+				background-color: rgba(59, 190, 122, .9);
+				float: left;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				cursor: pointer;
+
+			}
+
+			.c-thuan .c-img {
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/logo-pc.svg);
+				background-repeat: no-repeat;
+				background-size: 80px 56px;
+				width: 80px;
+				height: 56px;
+				margin: 0 auto;
+				background-position: center;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.line-top {
+				border-top: 1px solid #3bbe7a;
+				width: 18px;
+				margin: auto;
+			}
+
+			.container .c-dhan ul li {
+				padding-top: 10px;
+				width: 114px;
+				height: 42px;
+			}
+
+			.container .c-dhan ul li a {
+				padding: 16px 25px 5px !important;
+				color: black;
+				font-size: 16px;
+			}
+
+			.container .c-dhan ul li a:hover {
+				background-color: white;
+				color: rgba(59, 190, 122, .9);
+			}
+
+			.c-dhan .c-btn {
+				width: 142px;
+				padding: 6px 25px;
+				border: 1px solid #3bbe7a;
+				background: white;
+				color: #3bbe7a;
+				margin-top: 15px;
+			}
+
+			.row {
+				margin-right: 14px;
+				margin-left: -15px;
+			}
+
+			.c-dhan .c-btn:hover {
+				background: #3bbe7a;
+				color: white;
+			}
+
+			@media (max-width: 768px) {
+				.c-nav {
+					display: none;
+				}
+			}
+
+			/* top部照片 */
+			.yundng {
+				width: 100%;
+				height: 338px;
+				position: relative;
+			}
+
+			.yundng img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.title-comm-tuhuan {
+				text-align: center;
+				margin: 100px 0 80px;
+			}
+
+			.mb8 {
+				margin-bottom: 8px;
+			}
+
+			.lineheight {
+				margin: 30px auto 26px;
+			}
+
+			.line-tuhuan {
+				border-top: 2px solid #3bbe7a;
+				width: 80px;
+				margin: 30px auto 26px;
+			}
+
+			/* 轮播图 */
+			.item {
+				width: 100%;
+			}
+
+			.item img {
+				width: 100%;
+			}
+
+			.carousel-indicators li {
+				width: 20px;
+				height: 2px;
+				background-color: white;
+				margin: 0px 5px;
+			}
+
+			.carousel-indicators li.active {
+				width: 20px;
+				height: 4px;
+				background-color: #3bbe7a;
+			}
+
+			.carousel-caption {
+				top: 16%;
+				right: 16px;
+			}
+
+			.carousel-caption h1 {
+				font-size: 50px;
+			}
+
+			.carousel-caption em {
+				font-size: 64px;
+			}
+
+			.carousel-caption p {
+				font-size: 30px;
+			}
+
+			.carousel-control {
+				width: 1%;
+			}
+
+
+			.c-zdy {
+				position: absolute;
+				top: 16%;
+				left: 50px;
+			}
+
+			.c-zdy h1 {
+				font-size: 50px;
+			}
+
+			.c-zdy em {
+				font-size: 64px;
+			}
+
+			.c-zdy p {
+				font-size: 30px;
+			}
+
+			.carousel-control.right,
+			.carousel-control.left {
+				background-image: none;
+			}
+
+			.btn-primary {
+				font-size: 25px;
+				font-weight: normal;
+				color: #fff;
+				border-color: rgba(59, 190, 122, .9);
+				background-color: rgba(59, 190, 122, .9);
+				display: inline;
+				text-align: center;
+				border-radius: 2px;
+				padding: 5px 10px;
+			}
+
+			.title-comm {
+				text-align: center;
+				margin: 100px 0 80px;
+			}
+
+			.welinain {
+				text-align: center;
+			}
+
+			.line {
+				border-top: 1px solid #3bbe7a;
+				width: 30px;
+				margin: 20px auto 40px;
+			}
+
+			.linh25 {
+				line-height: 25px;
+			}
+
+			.large-3 {
+				width: 33.33333333%;
+				float: left;
+			}
+
+			/* 以专业... */
+			.title-comm-tuhuan {
+				text-align: center;
+				margin: 100px 0 80px;
+			}
+
+			/* 底部开始 */
+			footer {
+				background-color: #333;
+				padding: 46.5px 0;
+			}
+
+			.ac-gf-footer-legal {
+				margin-left: 100px;
+				float: left;
+			}
+
+			.footer-legal-links {
+				margin-bottom: 10px;
+				overflow: hidden;
+			}
+
+			.footer-legal-links a:first-child {
+				padding-left: 0;
+			}
+
+			.bor-line {
+				width: 1px;
+				height: 10px;
+				border-right: 1px solid rgba(170, 170, 170, .5);
+				margin-top: 6px;
+				float: left;
+			}
+
+			.footer-legal-links a {
+				margin-right: 15px;
+				padding-left: 15px;
+				white-space: nowrap;
+				color: rgba(170, 170, 170, .8);
+				float: left;
+			}
+
+			.footer-beizhu {
+				font-size: 12px;
+				color: rgba(102, 102, 102, .8);
+			}
+
+			.footer-weixin {
+				float: right;
+				position: relative;
+				top: 0px;
+				left: -50px;
+				margin-right: 20px;
+			}
+
+
+
+			@media only screen and (max-width: 1068px) .bt-example-popover {
+				left: -42px;
+			}
+
+			.bt-example-popover .popover {
+				width: auto;
+				background-color: #fff;
+				border-radius: 4px;
+				box-shadow: none;
+				position: relative;
+				display: block;
+				box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+				border: none;
+				opacity: 0;
+				-webkit-transition: all .5s ease-out;
+				-moz-transition: all .5s ease-out;
+				-o-transition: all .5s ease-out;
+				transition: all .5s ease-out;
+			}
+
+			@media only screen and (max-width: 1068px) .erweima-logo-icon {
+				background-size: 100px 100px;
+				height: 100px;
+				width: 100px;
+			}
+
+			.shouji-logo-icon {
+				position: relative;
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/shouji-logo-icon.svg);
+				background-size: 42px 42px;
+				height: 42px;
+				width: 42px;
+				opacity: .8;
+				cursor: pointer;
+				margin: 0;
+				-webkit-transition: all .5s ease-in;
+				-moz-transition: all .5s ease-in;
+				-o-transition: all .5s ease-in;
+				transition: all .5s ease-in;
+			}
+
+			.footer-weixin .wx {
+				padding: 7px;
+				position: absolute;
+				bottom: 62px;
+				right: -55px;
+				content: '';
+				width: 160px;
+				height: 160px;
+				background-color: white;
+				z-index: 2;
+				display: none;
+
+			}
+
+			.footer-weixin:hover .wx {
+				display: block;
+			}
+
+			.footer-weixin .wx::after {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				content: "";
+				width: 140px;
+				height: 140px;
+				background-size: 50px 50px;
+				background: url(http://www.tuhuanjk.com/templets/default/img/erweima-app.svg);
+			}
+
+			.footer-weixin .wx::before {
+				position: absolute;
+				right: 60px;
+				bottom: -36px;
+				width: 0;
+				content: "";
+				height: 0;
+				border-top: 20px solid white;
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-left: 20px solid transparent;
+
+			}
+
+			.footer-weixin:hover:.wx {
+				display: block;
+			}
+
+			.weixin-logo-icon {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/wewix-ico.svg);
+				background-size: 42px 42px;
+				height: 42px;
+				width: 42px;
+				opacity: .8;
+				cursor: pointer;
+				margin: 0;
+				-webkit-transition: all .5s ease-in;
+				-moz-transition: all .5s ease-in;
+				-o-transition: all .5s ease-in;
+				transition: all .5s ease-in;
+			}
+
+			/* 底部结束 */
+			/* !-- 缩小时显示 */
+			.c-new {
+				width: 100%;
+				padding: 5px 0px;
+			}
+			
+			@media (min-width:768px) {
+				.c-new {
+					display: none;
+				}
+			}
+			
+			.c-new .c-zuo {
+				margin-left: 20px;
+				float: left;
+				height: 45px;
+				font-size: 18px;
+				line-height: 20px;
+				display: inline-block;
+			}
+			
+			@media (max-width: 767px) {
+				.ac-logo-icon {
+					background-repeat: no-repeat;
+					background-image: url(http://www.tuhuanjk.com/templets/default/img/logo.svg);
+					background-size: 33px 33px !important;
+					height: 33px !important;
+					width: 33px !important;
+					float: left;
+				}
+			}
+			
+			.c-span {
+				color: #3BBE7A;
+				font-size: 25px;
+				margin-right: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 缩小时显示 -->
+		<div class="c-new">
+			<div class="c-zuo">
+				<figure class="ac-logo-icon"></figure>
+			</div>
+			<div>
+				<span class="glyphicon glyphicon-menu-hamburger c-span right dropdown" aria-hidden="true">
+
+				</span>
+			</div>
+		</div>
+		<!-- 导航条 -->
+		<div class="c-nav">
+			<div class="container">
+				<div class="row">
+					<div class="c-thuan">
+						<a href="2.途欢健康.html">
+							<div class="c-img"></div>
+						</a>
+
+					</div>
+
+					<div class="c-dhan right ">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="首页.html">关于我们</a>
+								<p></p> <!-- 下划线 -->
+							</li>
+							<li>
+								<a href="2.途欢健康.html">途欢健康</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="3.加入我们.html">加入我们</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="">联系我们</a>
+								<p class="line-top"></p>
+							</li>
+							<li>
+								<a href="">公司动态</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="">价值聚焦</a>
+								<p></p>
+							</li>
+						</ul>
+						<button class="c-btn ">下载途欢健康</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="yundng">
+				<img src="2.png">
+			</div>
+		</div>
+		<!-- 联系我们 -->
+		<div class="container">
+			<div class="title-comm-tuhuan">
+				<h3 class="welinain">以专业维护您的健康</h3>
+				<p class="line lineheight"></p>
+				<p>途欢希冀于用专业的力量温情传递健康的意义，用医学的理念与技术帮助大众更科学的维护健康</p>
+			</div>
+		</div>
+
+
+
+		<div class="container-fluid" style="background-color: #eeefe9;padding-top: 30px;">
+			<div class="row">
+				<div class="col-lg-4 text-center">
+					<img class="img-circle" src="http://www.tuhuanjk.com/templets/default/img/contact-kefu.svg" alt="" width="140"
+					 height="140">
+					<h2>联系客服</h2>
+					<p>搭电话：028-86337521</p>
+					<p>邮箱：service@sctuhuan.com</p>
+					<p>工作时间：09：00~18：00（周一到周日）</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4 text-center">
+					<img class="img-circle" src="http://www.tuhuanjk.com/templets/default/img/contact-swhz.svg" alt="Generic placeholder image"
+					 width="140" height="140">
+					<h2>专商务合作</h2>
+					<p>联系人：张经理</p>
+					<p>电话：028-83226092</p>
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4 text-center">
+					<img class="img-circle" src="http://www.tuhuanjk.com/templets/default/img/contact-swhz.svg" alt="Generic placeholder image"
+					 width="140" height="140">
+					<h2>公司地址</h2>
+					<p>四川省成都市高新区府城大道399号天府新谷7栋</p>
+					<p>邮编：610017</p>
+					<p>传真：028-83226095</p>
+				</div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+		</div>
+
+
+		<!-- 底部 -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="ac-gf-footer-legal">
+						<div class="footer-legal-links">
+							<a href="/news/">公司动态</a>
+							<div class="bor-line"></div>
+							<a href="/joinus/">加入我们</a>
+							<div class="bor-line"></div>
+							<a href="/customres/">企业用户</a>
+							<div class="bor-line"></div>
+							<a href="/useragreement/" class="nob">用户使用协议</a>
+						</div>
+						<div class="footer-beizhu">Copyright © 2018 途欢医疗健康科技有限公司 蜀ICP备15025302号-1</div>
+					</div>
+					<div class="footer-weixin">
+						<div class="wx"></div>
+						<figure class="weixin-logo-icon"></figure>
+					</div>
+					<div class="footer-weixin">
+						<div class="wx"></div>
+						<figure class="shouji-logo-icon"></figure>
+
+					</div>
+				</div>
+				<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+				<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+				<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>

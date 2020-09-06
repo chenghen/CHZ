@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>Bootstrap 101 Template</title>
+
+		<!-- Bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.left {
+				float: left;
+			}
+
+			.right {
+				float: right;
+			}
+
+			.c-nav {
+				width: 100%;
+				padding: 15px 0px;
+			}
+
+			.row .c-thuan {
+
+				width: 130px;
+				height: 70px;
+				background-color: rgba(59, 190, 122, .9);
+				float: left;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				cursor: pointer;
+
+			}
+
+			.c-thuan .c-img {
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/logo-pc.svg);
+				background-repeat: no-repeat;
+				background-size: 80px 56px;
+				width: 80px;
+				height: 56px;
+				margin: 0 auto;
+				background-position: center;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.line-top {
+				border-top: 1px solid #3bbe7a;
+				width: 18px;
+				margin: auto;
+			}
+
+			.container .c-dhan ul li {
+				padding-top: 10px;
+				width: 114px;
+				height: 42px;
+			}
+
+			.container .c-dhan ul li a {
+				padding: 16px 25px 5px !important;
+				color: black;
+				font-size: 16px;
+			}
+
+			.container .c-dhan ul li a:hover {
+				background-color: white;
+				color: rgba(59, 190, 122, .9);
+			}
+
+			.c-dhan .c-btn {
+				width: 142px;
+				padding: 6px 25px;
+				border: 1px solid #3bbe7a;
+				background: white;
+				color: #3bbe7a;
+				margin-top: 15px;
+			}
+
+			.row {
+				margin-right: 14px;
+				margin-left: -15px;
+			}
+
+			.c-dhan .c-btn:hover {
+				background: #3bbe7a;
+				color: white;
+			}
+
+			@media (max-width: 768px) {
+				.c-nav {
+					display: none;
+				}
+			}
+
+			/* 轮播图 */
+			.item {
+				width: 100%;
+			}
+
+			.item img {
+				width: 100%;
+			}
+
+			.carousel-indicators li {
+				width: 20px;
+				height: 2px;
+				background-color: white;
+				margin: 0px 5px;
+			}
+
+			.carousel-indicators li.active {
+				width: 20px;
+				height: 4px;
+				background-color: #3bbe7a;
+			}
+
+			.carousel-caption {
+				top: 16%;
+				right: -79px;
+			}
+
+			.carousel-caption h1 {
+				font-size: 50px;
+			}
+
+			.carousel-caption em {
+				font-size: 64px;
+			}
+
+			.carousel-caption p {
+				font-size: 30px;
+			}
+
+			.carousel-control {
+				width: 1%;
+			}
+
+
+			.c-zdy {
+				position: absolute;
+				top: 16%;
+				left: 50px;
+			}
+
+			.c-zdy h1 {
+				font-size: 50px;
+			}
+
+			.c-zdy em {
+				font-size: 64px;
+			}
+
+			.c-zdy p {
+				font-size: 30px;
+			}
+
+			.carousel-control.right,
+			.carousel-control.left {
+				background-image: none;
+			}
+
+			.btn-primary {
+				font-size: 25px;
+				font-weight: normal;
+				color: #fff;
+				border-color: rgba(59, 190, 122, .9);
+				background-color: rgba(59, 190, 122, .9);
+				display: inline;
+				text-align: center;
+				border-radius: 2px;
+				padding: 5px 10px;
+			}
+
+			.title-comm {
+				text-align: center;
+				margin: 100px 0 80px;
+			}
+
+			.welinain {
+				text-align: center;
+			}
+
+			.line {
+				border-top: 1px solid #3bbe7a;
+				width: 30px;
+				margin: 20px auto 40px;
+			}
+
+			.linh25 {
+				line-height: 25px;
+			}
+
+			
+
+			/* 768  myCarousel*/
+			/* @media (min-width:768px;) {
+				.carousel-inner{
+					height: 680px;
+				}
+			} */
+
+			/* 三个大图 */
+			.col-div {
+				padding: 25px;
+				overflow: hidden;
+				text-align: center;
+				background-color: rgba(59, 190, 122, .8);
+				color: rgba(255, 255, 255, .8);
+				border-radius: 2px;
+				padding: 18% 8%;
+			}
+
+			@media (max-width: 992px) {
+				.col-div {
+					margin-bottom: 30px;
+				}
+			}
+
+			.chuanxin-logo-icon {
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/chuangxin.svg);
+				background-repeat: no-repeat;
+				background-size: 110px 110px;
+				width: 110px;
+				height: 110px;
+			}
+
+			.pu-logo-icon {
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/puhui.svg);
+				background-repeat: no-repeat;
+				background-size: 110px 110px;
+				width: 110px;
+				height: 110px;
+			}
+
+			.chonggou-logo-icon {
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/chonggou.svg);
+				background-repeat: no-repeat;
+				background-size: 110px 110px;
+				width: 110px;
+				height: 110px;
+			}
+
+			.ac-figure-icon {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			/* 轮播图和文字 */
+			.app-none {
+				margin-bottom: 30px;
+			}
+
+			.hbox.box-v-center {
+				-webkit-box-align: center;
+				align-items: center;
+
+			}
+
+			.mb-describe {
+				background-color: rgba(59, 190, 122, .85);
+				padding: 0;
+				color: #fff;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			@media only screen and (max-width: 992px) and (min-width: 768px) .col-md-8 {
+				margin-top: 30px;
+				width: 66.8%;
+				float: left;
+			}
+
+			.mb-ibox {
+				width: 100%;
+				overflow: hidden;
+				z-index: 1;
+			}
+
+			.mb-ibox a:first-child {
+				z-index: 6;
+			}
+
+			a {
+				color: #3bbe7a;
+			}
+
+			.mb-ibox div {
+				background-color: #f2f2f2;
+			}
+
+			.img-responsive {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			
+			@media only screen and (max-width: 768px) and (min-width: 440px) .team_main_image {
+				min-height: 398px;
+			}
+
+		
+
+			.tuhuandaifu-ico {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/tuhuandaifu-ico.png);
+				background-size: 64px 64px;
+				height: 64px;
+				width: 64px;
+				margin: auto;
+				margin-top: 30px;
+			}
+
+			.xietiaozhuanyuan-ico {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/xietiaozhuanyuan-ico.png);
+				background-size: 64px 64px;
+				height: 64px;
+				width: 64px;
+				margin: auto;
+				margin-top: 30px;
+			}
+
+			.jiatingyisheng-ico {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/jiatingyisheng-ico.png);
+				background-size: 64px 64px;
+				height: 64px;
+				width: 64px;
+				margin: auto;
+				margin-top: 30px;
+			}
+
+			.tuandui-title {
+				font-size: 18px;
+				margin: 9% 0 5%;
+				text-align: center;
+			}
+
+			.kePublic-cont-info {
+				font-size: 14px;
+				color: rgba(255, 255, 255, .8);
+			}
+
+			/* 圆点 */
+			.mb-inav-about {
+				z-index: 10 !important;
+				width: 210px;
+				overflow: hidden;
+				margin: 0 auto;
+				margin-top: 4.5%;
+				padding-top: 4px;
+			}
+
+			ul {
+				list-style: none;
+				padding: 0px;
+			}
+
+			.mb-inav-about li {
+				float: left;
+			}
+
+			ul li {
+				list-style: none;
+			}
+
+			.mb-inav-about li div {
+				width: 40px;
+				height: 2px;
+				background-color: rgba(170, 170, 170, .5);
+				margin: 2px 10px 0 0;
+			}
+
+
+
+			div.flicking_con {
+				text-align: center;
+				margin: 0 0 0 0;
+				left: 0;
+				width: 100%;
+				height: 149px;
+			}
+
+			@media (min-width: 768px) .container {
+				width: 750px;
+			}
+
+
+			.tuhuanyuanjing {
+				margin-top: 9%;
+			}
+
+			.thyj-logo-icon {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/lthyj-ogo.svg);
+				background-size: 100px 100px;
+				height: 100px;
+				width: 100px;
+				margin: auto;
+			}
+
+			/* 底部开始 */
+			footer {
+				background-color: #333;
+				padding: 46.5px 0;
+			}
+
+			.ac-gf-footer-legal {
+				margin-left: 100px;
+				float: left;
+			}
+
+			.footer-legal-links {
+				margin-bottom: 10px;
+				overflow: hidden;
+			}
+
+			.footer-legal-links a:first-child {
+				padding-left: 0;
+			}
+
+			.bor-line {
+				width: 1px;
+				height: 10px;
+				border-right: 1px solid rgba(170, 170, 170, .5);
+				margin-top: 6px;
+				float: left;
+			}
+
+			.footer-legal-links a {
+				margin-right: 15px;
+				padding-left: 15px;
+				white-space: nowrap;
+				color: rgba(170, 170, 170, .8);
+				float: left;
+			}
+
+			.footer-beizhu {
+				font-size: 12px;
+				color: rgba(102, 102, 102, .8);
+			}
+
+			.footer-weixin {
+				float: right;
+				position: relative;
+				top: 0px;
+				left: -50px;
+				margin-right: 20px;
+			}
+
+
+
+			@media only screen and (max-width: 1068px) .bt-example-popover {
+				left: -42px;
+			}
+
+			.bt-example-popover .popover {
+				width: auto;
+				background-color: #fff;
+				border-radius: 4px;
+				box-shadow: none;
+				position: relative;
+				display: block;
+				box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+				border: none;
+				opacity: 0;
+				-webkit-transition: all .5s ease-out;
+				-moz-transition: all .5s ease-out;
+				-o-transition: all .5s ease-out;
+				transition: all .5s ease-out;
+			}
+
+			@media only screen and (max-width: 1068px) .erweima-logo-icon {
+				background-size: 100px 100px;
+				height: 100px;
+				width: 100px;
+			}
+
+			.shouji-logo-icon {
+				position: relative;
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/shouji-logo-icon.svg);
+				background-size: 42px 42px;
+				height: 42px;
+				width: 42px;
+				opacity: .8;
+				cursor: pointer;
+				margin: 0;
+				-webkit-transition: all .5s ease-in;
+				-moz-transition: all .5s ease-in;
+				-o-transition: all .5s ease-in;
+				transition: all .5s ease-in;
+			}
+
+			.footer-weixin .wx {
+				padding: 7px;
+				position: absolute;
+				bottom: 62px;
+				right: -55px;
+				content: '';
+				width: 160px;
+				height: 160px;
+				background-color: white;
+				z-index: 2;
+				display: none;
+
+			}
+
+			.footer-weixin:hover .wx {
+				display: block;
+			}
+
+			.footer-weixin .wx::after {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				content: "";
+				width: 140px;
+				height: 140px;
+				background-size: 50px 50px;
+				background: url(http://www.tuhuanjk.com/templets/default/img/erweima-app.svg);
+			}
+
+			.footer-weixin .wx::before {
+				position: absolute;
+				right: 60px;
+				bottom: -36px;
+				width: 0;
+				content: "";
+				height: 0;
+				border-top: 20px solid white;
+				border-right: 20px solid transparent;
+				border-bottom: 20px solid transparent;
+				border-left: 20px solid transparent;
+
+			}
+
+			.footer-weixin:hover:.wx {
+				display: block;
+			}
+
+			.weixin-logo-icon {
+				background-repeat: no-repeat;
+				background-image: url(http://www.tuhuanjk.com/templets/default/img/wewix-ico.svg);
+				background-size: 42px 42px;
+				height: 42px;
+				width: 42px;
+				opacity: .8;
+				cursor: pointer;
+				margin: 0;
+				-webkit-transition: all .5s ease-in;
+				-moz-transition: all .5s ease-in;
+				-o-transition: all .5s ease-in;
+				transition: all .5s ease-in;
+			}
+
+			/* 底部结束 */
+
+			/* !-- 缩小时显示 */
+			.c-new {
+				width: 100%;
+				padding: 5px 0px;
+			}
+
+			@media (min-width:768px) {
+				.c-new {
+					display: none;
+				}
+			}
+
+			.c-new .c-zuo {
+				margin-left: 20px;
+				float: left;
+				height: 45px;
+				font-size: 18px;
+				line-height: 20px;
+				display: inline-block;
+			}
+
+			@media (max-width: 767px) {
+				.ac-logo-icon {
+					background-repeat: no-repeat;
+					background-image: url(http://www.tuhuanjk.com/templets/default/img/logo.svg);
+					background-size: 33px 33px !important;
+					height: 33px !important;
+					width: 33px !important;
+					float: left;
+				}
+			}
+
+			.c-span {
+				color: #3BBE7A;
+				font-size: 25px;
+				margin-right: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 缩小时显示 -->
+		<div class="c-new">
+			<div class="c-zuo">
+				<figure class="ac-logo-icon"></figure>
+			</div>
+			<div>
+				<span class="glyphicon glyphicon-menu-hamburger c-span right dropdown" aria-hidden="true">
+
+				</span>
+		
+			</div>
+		</div>
+		<!-- 导航条 -->
+		<div class="c-nav">
+			<div class="container">
+				<div class="row">
+					<div class="c-thuan">
+						<a href="2.途欢健康.html">
+							<div class="c-img"></div>
+						</a>
+
+					</div>
+
+					<div class="c-dhan right ">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="首页.html">关于我们</a>
+								<p class="line-top"></p> <!-- 下划线 -->
+							</li>
+							<li>
+								<a href="2.途欢健康.html">途欢健康</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="3.加入我们.html">加入我们</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="4.联系我们.html">联系我们</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="">公司动态</a>
+								<p></p>
+							</li>
+							<li>
+								<a href="">价值聚焦</a>
+								<p></p>
+							</li>
+						</ul>
+						<button class="c-btn ">下载途欢健康</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 轮播图 -->
+		<div class="container-fluid">
+			<!-- Carousel
+		      ================================================== -->
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img class="first-slide" src="http://www.tuhuanjk.com/templets/default/banner/img/innovative-start-banner-2x-small.jpg"
+						 alt="First slide">
+						<div class="container">
+							<div class="c-zdy">
+								<h1>融合医疗创新，连接千家万户</h1>
+								<p><a class="btn btn-lg btn-primary" href="#" role="button">途欢助力成都人民奔小康</a></p>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="item">
+						<img class="third-slide" src="http://www.tuhuanjk.com/templets/default/banner/img/aboutus-banner1-2x-small.jpg"
+						 alt="Third slide">
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>人生旅 <em>途 欢 </em>悦同行</h1>
+								<p>To Health To Happiness</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<img class="third-slide" src="http://www.tuhuanjk.com/templets/default/banner/img/future-start-banner1-2x-small.jpg"
+						 alt="Third slide">
+						<div class="container">
+							<div class="c-zdy">
+								<h1>"星未来InnoStar"全球创新创业大赛</h1>
+								<p>途欢健康惊艳斩获二等奖</p>
+								<p><a class="btn btn-lg btn-primary" href="#" role="button">成都站落幕</a></p>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<img class="third-slide" src=" http://www.tuhuanjk.com/templets/default/banner/img/aboutus-banner2-2x-small.jpg"
+						 alt="Third slide">
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>连接你与复杂医学世界的桥梁</h1>
+								<p>Getting Access To Better Quality Health Care</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<!-- /.carousel
+		</div>
+
+		<!-- 医疗 -->
+			<div class="container">
+				<div class="title-comm">
+					<h3 class="welinain">源自医疗、助力医疗、根植医疗</h3>
+					<p class="line"></p>
+					<p class="linh25">途欢，以创新科技驱动，以绝对的医学专业为前提和基石，将移动互联网、数据技术应用于健康领域</p>
+					<p class="linh25">用科技，改善医疗服务的效率和连续性；用科技，让优质医疗资源惠及更多的家庭；用科技，让更多的人受惠于医疗保健的预防价值，而不只是“因病治疗”</p>
+					<p class="linh25">途欢，帮助您获得更便捷的医疗健康服务与更优质的健康维护方案</p>
+				</div>
+
+				<div class="row linian-div">
+
+					<!-- <div class="col-lg-4  large-3 small-12"> -->
+					<div class=" col-xs-12 col-md-4">
+						<div class="col-div">
+							<figure class="pu-logo-icon ac-figure-icon"></figure>
+							<h4>普惠</h4>
+							<div>为大众提供更高品质的医疗健康服务</div>
+							<div style="margin-top: 2px;">帮助大众在健康维护中获益</div>
+						</div>
+					</div><!-- /.col-lg-4 -->
+
+					<!-- <div class="col-lg-4  large-3 small-12"> -->
+					<div class="col-xs-12 col-md-4">
+						<div class="col-div">
+							<figure class="chuanxin-logo-icon ac-figure-icon"></figure>
+							<h4>创新</h4>
+							<div>协同现有医疗体系，以主动管理式医疗服务</div>
+							<div style="margin-top: 2px;">更好的维护大众健康、实现价值医疗</div>
+						</div>
+					</div><!-- /.col-lg-4 -->
+
+					<!-- <div class="col-lg-4  large-3 small-12"> -->
+					<div class="col-xs-12 col-md-4">
+						<div class="col-div">
+							<figure class="chonggou-logo-icon ac-figure-icon"></figure>
+							<h4>重构</h4>
+							<div>以前瞻视野重构医疗健康服务模式</div>
+							<div style="margin-top: 2px;">实现大众健康价值与医生医疗价值回归</div>
+						</div>
+					</div><!-- /.col-lg-4 -->
+				</div>
+			</div>
+
+			<!-- 轮播图加文字 -->
+			<div class="container">
+				<div class="title-comm">
+					<h3 class="welinain">途欢优质的医疗服务团队</h3>
+					<p class="line"></p>
+				</div>
+
+				<div class=" app-none" style="position:relative;">
+					<div class="mb-describe hbox box-v-center">
+						<div class="col-md-8" style="padding:0">
+							<div id="mb-ibox" class="mb-ibox ">
+								<a class="">
+									<div class=" animated ShowBgUp"><img src="http://www.tuhuanjk.com/templets/default/img/tuhuandaifu.jpg" class="img-responsive"></div>
+								</a>
+
+							</div>
+						</div>
+						<div id="mb-itxt" class="col-md-4">
+
+							<div style="display: block;" class="slide-itxt">
+								<div class="kePublic-rightdiv">
+									<div class="tuhuandaifu-ico  animated animateUp delay_1"></div>
+									<div class="tuandui-title">
+										<div class="animated animateUp delay_2">途欢大夫</div>
+									</div>
+									<div class="kePublic-cont-info animated animateUp delay_3">
+										如您与家人患有慢性疾病，定期为您连接三甲医院专科医生，并评估指导您的诊疗方案。当家庭发生临床医疗需求，将为您推荐并连接最适宜的医生与专家，确保获得更优的医疗解决方案
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<!-- 下一张 -->
+				<div class=" app-none" style="position:relative;">
+					<div class="mb-describe hbox box-v-center">
+						<div class="col-md-8" style="padding:0">
+							<div id="mb-ibox" class="mb-ibox ">
+								<a class="">
+									<div class=" animated ShowBgUp"><img src="http://www.tuhuanjk.com/templets/default/img/xietiaozhuanyuan1.jpg"
+										 class="img-responsive"></div>
+								</a>
+
+							</div>
+						</div>
+						<div id="mb-itxt" class="col-md-4">
+							<!-- <div style="display: none;" class="slide-itxt">
+							<div class="kePublic-rightdiv">
+								<div class="jiankangguwen-ico animated animateUp delay_1"></div>
+								<div class="tuandui-title">
+									<div class="animated animateUp delay_2">个人专属健康顾问</div>
+								</div>
+								<div class="kePublic-cont-info animated animateUp delay_3">
+									您与医生间的纽带工作者，拥有多年临床及健康管理工作经验，令您与医生的沟通更有质量，帮助您获得更精准的医疗服务
+								</div>
+							</div>
+						</div> -->
+							<div style="display:  block;" class="slide-itxt">
+								<div class="kePublic-rightdiv">
+									<div class="xietiaozhuanyuan-ico  animated animateUp delay_1"></div>
+									<div class="tuandui-title">
+										<div class="animated animateUp delay_2">医疗协调专员</div>
+									</div>
+									<div class="kePublic-cont-info animated animateUp delay_3">
+										您与家人的医疗服务协调顾问，拥有多年临床工作背景和分诊经验，给予您和家人必要的就医指导，帮助您选择适需的科室就医、获得专科医生线上预诊服务，或为您连接您所需的医疗服务
+									</div>
+								</div>
+							</div>
+							<!-- <div style="display: none;" class="slide-itxt">
+							<div class="kePublic-rightdiv">
+								<div class="jiatingyisheng-ico  animated animateUp delay_1"></div>
+								<div class="tuandui-title">
+									<div class="animated animateUp delay_2">途欢家庭医生</div>
+								</div>
+								<div class="kePublic-cont-info animated animateUp delay_3">
+									您与家人的健康守门人。解决您与家庭日常大多数的医疗需求及慢性疾病稳定期的治疗、随访与管理。在途欢健康管理平台与健康顾问支持下，协助您完成更精准，更有价值的诊疗
+								</div>
+							</div>
+						</div> -->
+							<!-- <div style="display: block;" class="slide-itxt">
+							<div class="kePublic-rightdiv">
+								<div class="xietiaozhuanyuan-ico  animated animateUp delay_1"></div>
+								<div class="tuandui-title">
+									<div class="animated animateUp delay_2">途欢大夫</div>
+								</div>
+								<div class="kePublic-cont-info animated animateUp delay_3">
+									如您与家人患有慢性疾病，定期为您连接三甲医院专科医生，并评估指导您的诊疗方案。当家庭发生临床医疗需求，将为您推荐并连接最适宜的医生与专家，确保获得更优的医疗解决方案
+								</div>
+							</div>
+						</div> -->
+						</div>
+					</div>
+				</div>
+
+				<div class=" app-none" style="position:relative;">
+					<div class="mb-describe hbox box-v-center">
+						<div class="col-md-8" style="padding:0">
+							<div id="mb-ibox" class="mb-ibox ">
+								<a class="">
+									<div class=" animated ShowBgUp"><img src="http://www.tuhuanjk.com/templets/default/img/jiatingyisheng.jpg"
+										 class="img-responsive"></div>
+								</a>
+
+							</div>
+						</div>
+						<div id="mb-itxt" class="col-md-4">
+
+							<div style="display:  block;" class="slide-itxt">
+								<div class="kePublic-rightdiv">
+									<div class="jiatingyisheng-ico  animated animateUp delay_1"></div>
+									<div class="tuandui-title">
+										<div class="animated animateUp delay_2">途欢家庭医生</div>
+									</div>
+									<div class="kePublic-cont-info animated animateUp delay_3">
+										您与家人的健康守门人。解决您与家庭日常大多数的医疗需求及慢性疾病稳定期的治疗、随访与管理。
+										在途欢健康管理平台与健康顾问支持下，协助您完成更精准，更有价值的诊疗
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container">
+					<div class="title-comm">
+						<h3 class="welinain">途欢的愿景</h3>
+						<p class="line"></p>
+						<p class="mtop40">永怀专业信念，以前瞻视野，定义医疗健康新未来</p>
+					</div>
+				</div>
+
+				<div class=" app">
+					<div style="background: url(http://www.tuhuanjk.com/templets/default/img/about-yuanjing.jpg) 50% 0%; height: 420px;">
+						<div class="container">
+							<div class="row">
+								<div class="tuhuanyuanjing" style="text-align: center; color: rgba(255, 255, 255, 0.8)">
+									<figure class="thyj-logo-icon"></figure>
+									<p class="text-white" style="margin-top: 3.2%;">途欢健康，协同于现有的医疗服务体系，致力于构建更精准的医疗保健模式</p>
+									<p class="text-white">途欢健康，以信息技术为基础，移动互联网平台为工具、以三甲医院医生、社区医院医生、医生助理组成的"责任医疗团队"</p>
+									<p>为大众提供基于个体与疾病的主动管理式医疗服务</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 底部 -->
+				<footer>
+					<div class="container">
+						<div class="row">
+							<div class="ac-gf-footer-legal">
+								<div class="footer-legal-links">
+									<a href="/news/">公司动态</a>
+									<div class="bor-line"></div>
+									<a href="/joinus/">加入我们</a>
+									<div class="bor-line"></div>
+									<a href="/customres/">企业用户</a>
+									<div class="bor-line"></div>
+									<a href="/useragreement/" class="nob">用户使用协议</a>
+								</div>
+								<div class="footer-beizhu">Copyright © 2018 途欢医疗健康科技有限公司 蜀ICP备15025302号-1</div>
+							</div>
+							<div class="footer-weixin">
+								<div class="wx"></div>
+								<figure class="weixin-logo-icon"></figure>
+							</div>
+							<div class="footer-weixin">
+								<div class="wx"></div>
+								<figure class="shouji-logo-icon"></figure>
+
+							</div>
+						</div>
+				</footer>
+				<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>
