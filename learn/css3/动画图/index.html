@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .walk {
+            width: 200px;
+            height: 312px;
+            /* background: lightblue; */
+            background-position: 200px;
+            background-image: url(./img/walkingdead.png);
+            animation: mywalk 4s infinite;
+            animation-timing-function: steps(10, start);
+            margin: 0 auto;
+            
+        }
+
+        @keyframes mywalk {
+            from {
+                background-position-x: 200px;
+            }
+
+            to {
+                background-position-x: -1800px;
+            }
+        }
+
+       .girl {
+            width: 180px;
+            height: 300px;
+            background-image: url(./img/sprites\ -\ 副本.png);
+            background-position: 180px;
+            animation-name: mygirl;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(7,end);
+            margin:0 auto;
+        }
+
+        @keyframes mygirl {
+            from {
+                background-position-x: 0px;
+            }
+
+            to {
+                background-position-x: -1260px;
+            }
+        }
+
+       .iori {
+            width: 76.5px;
+            height: 81px;
+            background-image: url(./img/sprites-IORI.jpg);
+            background-position: 76.5px;
+            animation: myiori 5s infinite;
+            animation-timing-function: steps(26, start);
+            transform: scale(4);
+            margin: 0 auto;
+            margin-top: 90px;
+        }
+
+        @keyframes myiori {
+            from {
+                background-position-x: 0px;
+            }
+
+            to {
+                background-position-x: -1912.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <div class="walk"></div>
+        <div class="girl"></div>
+        <div class="iori"></div>
+</body>
+
+</html>

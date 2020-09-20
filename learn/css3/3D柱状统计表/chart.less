@@ -1,0 +1,235 @@
+html{
+    height: 100%;
+}
+body{
+    background: linear-gradient(180deg,black,gray);
+   display: flex;
+   height: 100%;
+   perspective: 800px;
+   overflow: hidden;
+}
+.card{
+    width: 400px;
+    height: 540px;
+    background:url(./zt4.png);
+    background-size:cover;
+    background-position: center;
+    margin: auto;
+    border-radius: 15px;
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: all 1s;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+.mask{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   border-radius: 15px;
+//    继承，同步进行过渡
+   transition: inherit;
+}
+    &:before{
+        .mask();
+    }
+    &:after{
+        .mask();
+        background: black;
+       z-index: -1;
+       transform:translateZ(-20px);
+    //    底层加阴影
+       box-shadow: 0 0 16px 0 rgba(0, 0,0, 0.8);
+    }
+    // 调内部结构
+    h3{
+       font-size: 36px;
+       color: white;
+       margin-bottom: 15px;
+       font-family: Times New Roman;
+    }
+    h4{
+        font-size: 16px;
+        color: white;
+        margin-bottom: 15px;
+        font-family: Times New Roman;
+    }
+    ul.chart{
+        display: flex;
+        justify-content: center;
+        // 继承父级过渡
+        transition: inherit;
+        li{
+            width: 20px;
+            height: 20px;
+            background: white;
+            margin: 10px;
+            position: relative;
+            left: 0;
+            top: 0;
+            // border: 2px solid red;
+            transform: rotate(30deg);
+            // 开启3D视图效果
+            transform-style: preserve-3d;
+            transition: inherit;
+
+            .chart-side{
+                content: '';
+                height: 20px;
+                background: rgb(226, 212, 212);
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform-origin: 0 100%;
+                color: black;
+                transition: inherit;
+              
+            }
+            span{
+               .chart-side();
+               background: rgb(217, 215, 228);
+               width: 0px;
+               color: transparent;
+               text-align: right;
+
+             
+                transform: rotateY(-90deg) rotateX(-90deg) translateY(22px);
+            }
+            &::after{
+                .chart-side();
+                background: rgb(123, 171, 217);
+                width: 0px;
+                transform: rotateY(-90deg)  translateZ(-20px);
+            }
+            &::before{
+                .chart-side();
+                text-align: center;
+                width: 20px;
+                background:rgb(226, 212, 212);
+                transform:translateZ(0px);
+            }
+
+        }
+
+    }
+    h5{
+        font-size: 38px;
+       color: white;
+       margin-top: 20px;
+       font-family: serif;
+    }
+
+    &:active{
+        transform: rotateX(60deg) translate3d(0,-80px,60px);
+        &:before{
+            background: rgba(0, 0,255, 0.3);
+        }
+
+        ul.chart{
+            li{
+                 /* */
+            &:nth-child(1) {
+                span{
+                    color: black;
+                    width: 200px;
+                 }
+                 &::after{
+                     width: 200px;
+                 }
+                 &::before{
+                     content: 'M';
+                     transform:translateZ(200px);
+                 }
+            }
+            &:nth-child(2) {
+                span{
+                    color: black;
+                    width: 100px;
+                 }
+                 &::after{
+                     width: 100px;
+                 }
+                 &::before{
+                    content: 'T';
+                     transform: translateZ(100px);
+                 }
+            }
+            &:nth-child(3) {
+                span{
+                    color: black;
+                    width: 150px;
+                 }
+                 &::after{
+                     width: 150px;
+                 }
+                 &::before{
+                    content: 'W';
+                     transform: translateZ(150px);
+                 }
+            }
+            &:nth-child(4) {
+                span{
+                    color: black;
+                    width: 240px;
+                 }
+                 &::after{
+                     width: 240px;
+                 }
+                 &::before{
+                    content: 'T';
+                     transform: translateZ(240px);
+                 }
+            }
+            &:nth-child(5) {
+                span{
+                    color: black;
+                    width: 70px;
+                 }
+                 &::after{
+                     width: 70px;
+                 }
+                 &::before{
+                    content: 'Y';
+                     transform: translateZ(70px);
+                 }
+            }
+            &:nth-child(6) {
+                span{
+                    color: black;
+                    width: 70px;
+                 }
+                 &::after{
+                     width: 70px;
+                 }
+                 &::before{
+                    content: 'S';
+                     transform: translateZ(70px);
+                 }
+            }
+            &:nth-child(7) {
+                span{
+                    color: black;
+                    width: 100px;
+                 }
+                 &::after{
+                     width: 100px;
+                 }
+                 &::before{
+                    content: 'Z';
+                     transform: translateZ(100px);
+                 }
+            }
+            }
+        }
+       
+    }
+    }

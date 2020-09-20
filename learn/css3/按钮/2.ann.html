@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            background-color: #333;
+        } */
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+        .box{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            
+        }
+        .box .btn{
+            width: 220px;
+            height: 220px;
+            margin: 42px;
+            border-radius: 50%;
+        }
+        .an1,.an3{
+           width: 100%;
+           height: 100%;
+           position: relative;
+        }
+        .an1 .col{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 10px solid #ecab18;
+            border-right-color: #1ad280;
+            border-bottom-color: #1ad280;
+            position: relative;
+            transition: all 1s;
+            transform: rotate(0deg);
+        }
+        
+        .an1 .img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .an1 .img img{
+            width: 100%;
+            height: 100%;
+        }
+        .an1 .mask{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            border-radius: 50%;
+            opacity: 0;
+            text-align: center;
+            transition: opacity 1s;
+            color: #fff;
+        }
+        .an1 .mask .ziti h3,
+        .an3 .info .nav h3{
+            letter-spacing: 2px;
+            font-size: 24px;
+            margin: 0 30px;
+            padding: 55px 0 0;
+            height: 60px;
+            font-family: lustria,Georgia,times new roman,Times,serif;
+        }
+        .an1 .mask .ziti p,
+        .an3 .info .nav p{
+            color: #bbb;
+            padding: 10px 5px;
+            font-style: italic;
+            margin: 0 30px;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,.5);
+        }
+        .btn:hover .mask{
+            opacity: 0.8;
+        }
+        .btn:hover .col{
+            transform: rotate(180deg);
+        }
+
+        .an3 .img3{
+            width:100%;
+            height:100%;
+            border-radius: 50%;
+            transition: all 0.4s;
+            opacity: 1;
+            border: 10px solid #ecab18;
+            border-right-color: #1ad280;
+            border-bottom-color: #1ad280;
+        }
+        .an3 .img3 img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .an3 a:hover .img3{
+            opacity: 0;
+            transform: translateY(150px) rotate(360deg);
+        }
+        .an3 .info{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            z-index: -1;
+            color: #fff;
+            opacity: 0.3;
+            transition: all 0.5s;
+            transform: scale(0);
+        }
+        .an3 a:hover .info{
+            opacity: 1;
+            transform: scale(1);
+        }
+        .btn:hover .col-2{
+            transform: rotate(-180deg);
+        }
+        .an3 a:hover .img-4{
+            opacity: 0;
+            transform: translateX(-150px) rotate(360deg);
+        }
+        .an3 a:hover .img-5{
+            opacity: 0;
+            transform: translateY(-150px) rotate(360deg);
+        }
+        .an3 a:hover .img-6{
+            opacity: 0;
+            transform: translateX(150px) rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="btn an1">
+                <a href="">
+                    <div class="col"></div>
+                    <div class="img"><img src="./img/1.jpg" alt=""></div>
+                    <div class="mask">
+                        <div class="ziti">
+                            <h3>HEADING<br>
+                            HERE</h3>
+                            <p>Description goes here</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="btn an1">
+                <a href="">
+                    <div class="col col-2"></div>
+                    <div class="img"><img src="./img/2.jpg" alt=""></div>
+                    <div class="mask">
+                        <div class="ziti">
+                            <h3>HEADING<br>
+                            HERE</h3>
+                            <p>Description goes here</p>
+                        </div>
+                    </div>
+                </a>
+            </div> 
+            <div class="btn an3">
+                <a href="">
+                    <div class="img3"><img src="./img/3.jpg" alt=""></div>
+                    <div class="info">
+                        <div class="nav">
+                        <h3> HEADING HERE</h3>
+                        <p>Description goes here</p>
+                       </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="btn an3">
+                <a href="">
+                    <div class="img3 img-4"><img src="./img/4.jpg" alt=""></div>
+                    <div class="info">
+                        <div class="nav">
+                        <h3> HEADING HERE</h3>
+                        <p>Description goes here</p>
+                       </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="btn an3">
+                <a href="">
+                    <div class="img3 img-5"><img src="./img/5.jpg" alt=""></div>
+                    <div class="info">
+                        <div class="nav">
+                        <h3> HEADING HERE</h3>
+                        <p>Description goes here</p>
+                       </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="btn an3">
+                <a href="">
+                    <div class="img3 img-6"><img src="./img/6.jpg" alt=""></div>
+                    <div class="info">
+                        <div class="nav">
+                        <h3> HEADING HERE</h3>
+                        <p>Description goes here</p>
+                       </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="btn an3">
+                <a href="">
+                    <div class="img3 img-6"><img src="./img/6.jpg" alt=""></div>
+                    <div class="info">
+                        <div class="nav">
+                        <h3> HEADING HERE</h3>
+                        <p>Description goes here</p>
+                       </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

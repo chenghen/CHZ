@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hezi {
+            width: 850px;
+            display: flex;
+            padding: 20px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .stage {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: lightgray;
+            /* margin: 10px; */
+        }
+
+        .stage:hover .boxN {
+            transform: rotateX(45deg);
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            transition: all 1s;
+            /* transform-origin: 100% 0 0; */
+        }
+
+        .stage:hover .boxA {
+            transform: rotate(30deg);
+        }
+
+        .stage:hover .boxB {
+            transform: rotateX(45deg);
+        }
+
+        .stage:hover .boxC {
+            transform: rotateY(45deg);
+        }
+
+        .stage:hover .boxD {
+            transform: scale(2);
+        }
+
+        .stage:hover .boxE {
+            transform: scaleX(2);
+        }
+
+        .stage:hover .boxF {
+            transform: scaleY(2);
+        }
+
+        .stage:hover .boxG {
+            transform: skew(45deg, 45deg);
+        }
+
+        .stage:hover .boxH {
+            transform: skewX(45deg);
+        }
+
+        .stage:hover .boxJ {
+            transform: skewY(45deg);
+        }
+
+        .stage:hover .boxK {
+            transform: translate(45px, 45px);
+        }
+
+        .stage:hover .boxL {
+            transform: translateX(45px);
+        }
+
+        .stage:hover .boxM {
+            transform: translateY(45px);
+        }
+
+        .per {
+            Perspective: 100px;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            transform-origin: 100% 0;
+            background-color: lightgray;
+
+        }
+
+        .per:hover .box-X {
+            transform: rotateX(60deg);
+        }
+
+        .per:hover .box-Y {
+            transform: rotateY(60deg);
+        }
+
+        .boxO,
+        .boxP {
+            transform-origin: 100% 0 0;
+        }
+
+        .per:hover .boxO {
+            transform: rotateX(-45deg);
+        }
+
+        .per:hover .boxP {
+            transform: rotateY(-45deg);
+        }
+
+        .boxQ,
+        .boxR {
+            transform-origin: 0 100% 0;
+        }
+
+        .per:hover .boxQ {
+            transform: scaleY(2);
+        }
+
+        .per:hover .boxR {
+            transform: skew(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hezi">
+        <div class="stage">
+            <div class="box boxA">rotate</div>
+        </div>
+        <div class="stage">
+            <div class="box boxB">rotateX</div>
+        </div>
+        <div class="stage">
+            <div class="box boxC">rotateY</div>
+        </div>
+        <div class="stage">
+            <div class="box boxD">scale</div>
+        </div>
+        <div class="stage">
+            <div class="box boxE">scaleX</div>
+        </div>
+        <div class="stage">
+            <div class="box boxF">scaleY</div>
+        </div>
+        <div class="stage">
+            <div class="box boxG">skew</div>
+        </div>
+        <div class="stage">
+            <div class="box boxH">skewX</div>
+        </div>
+        <div class="stage">
+            <div class="box boxJ">skewY</div>
+        </div>
+        <div class="stage">
+            <div class="box boxK">translate</div>
+        </div>
+        <div class="stage">
+            <div class="box boxL">translateX</div>
+        </div>
+        <div class="stage">
+            <div class="box boxM">translateY</div>
+        </div>
+        <div class="per">
+            <div class="box boxO">transform-origin:100% 0 0<br>rotateX</div>
+        </div>
+        <div class="per">
+            <div class="box boxP">transform-origin:100% 0 0<br>rotateY</div>
+        </div>
+        <div class="per">
+            <div class="box boxQ">transform-origin:0 100% 0<br>scaleY</div>
+        </div>
+        <div class="per">
+            <div class="box boxR">transform-origin:0 100% 0<br>skew</div>
+        </div>
+        <div class="per">
+            <div class="box box-X">box-X</div>
+        </div>
+        <div class="per">
+            <div class="box box-Y">box-Y</div>
+        </div>
+        <div>
+
+
+            <div class="two">
+                <button>
+                    <div></div>
+                    <span>btn1</span>
+                </button>
+                
+                    <button>
+                        <div></div>
+                        <span>btn2</span>
+                    </button>
+                    <button>
+                        <div></div>
+                        <span>btn3</span>
+                    </button>
+                    <button>
+                        <div></div>
+                        <span>btn4</span>
+                    </button>
+                    <button>
+                        <div></div>
+                        <span>btn5</span>
+                    </button>
+                    <button>
+                        <div></div>
+                        <span>btn6</span>
+                    </button>
+
+                    <style>
+                        .two {
+                            width: 800px;
+                            display: flex;
+                            background: lightgoldenrodyellow;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                        }
+
+                        .two button {
+                            width: 100px;
+                            height: 50px;
+                            list-style: none;
+                            background: white;
+                            border: 1px solid lightsalmon;
+                            position: relative;
+                            margin: 20px;
+                            transition: all 1s;
+                        }
+
+                        .two button div {
+                            position: absolute;
+                            display: inline-block;
+                            background: lightcoral;
+                            transition: all 1s;
+                        }
+
+                        .two button span {
+                            position:relative;
+                            z-index: 1;
+                        }
+
+                        .two button:nth-child(1) div {
+                            width: 0px;
+                            height: 48px;
+                            left: 0;
+                            top: 0;
+                        }
+
+                        button:nth-child(1):hover div {
+                            width: 98px;
+                        }
+
+                        .two button:nth-child(2) div {
+                            width: 0px;
+                            height: 48px;
+                            right: 0;
+                            top: 0;
+                        }
+
+                        button:nth-child(2):hover div {
+                            width: 98px;
+                        }
+
+                        .two button:nth-child(3) div {
+                            width: 98px;
+                            height: 0px;
+                            left: 0;
+                            top: 0;
+                        }
+
+                        button:nth-child(3):hover div {
+                            height: 48px;
+                        }
+
+                        .two button:nth-child(4) div {
+                            width: 98px;
+                            height: 0px;
+                            left: 0;
+                            bottom: 0;
+                        }
+
+                        button:nth-child(4):hover div {
+                            height: 48px;
+                        }
+                        .two button:nth-child(5) div {
+                            width: 98px;
+                            height: 48px;
+                            left: 0;
+                            bottom: 0;
+                            transform: rotatex(90deg);
+                            
+                        }
+                        button:nth-child(5):hover div {
+                            transform: rotateX(0deg);
+                        }
+                        .two button:nth-child(6) div {
+                            width: 98px;
+                            height: 48px;
+                            left: 0;
+                            bottom: 0;
+                            transform: rotateY(90deg);
+                            
+                        }
+
+                        button:nth-child(6):hover div {
+                            transform: rotateY(0deg);
+                        }
+                    </style>
+
+</body>
+<!-- <script>
+    document.querySelectorAll('.box').forEach(function (element, index) {
+        element.onclick = function () {
+            this.classList.toggle('active')
+        }
+    })
+</script> -->
+
+</html>
