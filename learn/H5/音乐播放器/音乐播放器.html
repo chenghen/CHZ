@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="./playlist.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="stage">
+		<audio src="" autoplay></audio>
+		<div class="card">
+			<div class="mask"></div>
+			<div class="glue">
+				<img src="http://p1.music.126.net/-EV4XhJEJn_Ib7ebS1OHhg==/109951164820593469.jpg">
+			</div>
+			<div class="finger"></div>
+			<div class="right">
+				<h3>降临 (Live)</h3>
+				<h5>(Live)</h5>
+				<div class="controls">
+					<button class="prev">上</button>
+					<button class="play">播放</button>
+					<button class="next">下</button>
+				</div>
+				<div class="progress">
+					<input type="range" min="0" value="0" step="0.1" max="100" name="" id="">
+				</div>
+				<div class="time">
+					<span>00.00</span>
+					<span>00.00</span>
+				</div>
+			</div>
+		</div>
+		<ul class="list"></ul>
+	</div>
+	<script>
+		var list = document.querySelector("ul.list");
+		var audio = document.querySelector("audio");
+		var play = document.querySelector(".play");
+		var prev = document.querySelector(".prev");
+		var next = document.querySelector(".next");
+		var stage = document.querySelector(".stage");
+		var h3 = document.querySelector("h3");
+		var h5 = document.querySelector("h5");
+		var progress = document.querySelector(".progress input")
+		var current = 0;
+		// 初始化
+		// list歌曲列表展示
+		playlist.forEach(function (element, index) {
+			// console.log(element.id)
+			var node = document.createElement('li');
+			node.innerText = element.name;
+			list.appendChild(node)
+		})
+
+		// 根据歌曲id 返回歌曲 url
+		function countUrl(id) {
+			return "https://music.163.com/song/media/outer/url?id=" + playlist[current].id + ".mp3"
+		}
+		// 初始化第一首歌
+		// audio.src = countUrl(playlist[0].id)
+		// h3.innerText = playlist[0].name;
+		// h5.innerText = playlist[0].artists;
+		changeSong(playlist[current])
+
+		// 控制
+		play.onclick = function () {
+			// 判断播放状态
+			if (audio.paused) {
+				audio.play()
+			} else {
+				audio.pause()
+			}
+		}
+
+		// 监听播放状态
+		audio.onplay = function () {
+			// 更改stage 的播放状态 添加class
+			stage.classList.add('playing')
+			// 切换按钮
+			play.innerText = '暂停'
+		};
+		audio.onpause = function () {
+			// 更改stage 的暂停状态 
+			stage.classList.remove('playing')
+			play.innerText = '播放'
+		}
+
+		// 更新进度条
+		audio.ontimeupdate = function () {
+			//console.log(this.currentTime, this.duration)
+			if (isNaN(this.duration)) {
+				return;
+			}
+			progress.value = (this.currentTime / this.duration * 100)
+
+			document.querySelectorAll('.time span')[0].innerText = countTime(this.currentTime);
+		};
+
+		progress.onchange = function () {
+			// console.log(this.value)
+			audio.currentTime = (this.value * audio.duration) / 100;
+		}
+
+		function countTime(n) {
+			var n = Math.floor(n)
+			var m = Math.floor(n / 60);
+			var s = n % 60;
+			m = m > 9 ? m : '0' + m;
+			s = s > 9 ? s : '0' + s;
+			return m + ':' + s;
+		}
+
+		audio.ondurationchange = function () {
+			document.querySelectorAll('.time span')[1].innerText = countTime(this.duration);
+		}
+
+		// 切换歌曲
+		function changeSong(obj) {
+			// 切换url
+			audio.src = countUrl(obj.id)
+			h3.innerText = obj.name;
+			h5.innerText = obj.artists;
+
+			document.querySelector('.glue img').src = obj.picUrl;
+			document.querySelector('.mask').style.backgroundImage = 'url("' + obj.picUrl + '")'
+
+			document.querySelectorAll('ul.list li').forEach(function (element, index) {
+				if (index == current) {
+					element.classList.add('playing')
+				} else {
+					element.classList.remove('playing')
+				}
+			})
+		}
+
+		// 列表顺序播放
+		audio.onended = function () {
+			current++;
+			if (current > playlist.length - 1) {
+				//重新从0播放
+				current = 0;
+			}
+			changeSong(playlist[current])
+		}
+
+		// 下一首
+		next.onclick = function () {
+			// console.log('下一首')
+			current++;
+			if (current > playlist.length - 1) {
+				//重新从0播放
+				current = 0;
+
+			}
+			changeSong(playlist[current])
+		}
+
+		// 上一首
+		prev.onclick = function () {
+			// console.log('下一首')
+
+			if (current == 0) {
+				current = playlist.length;
+			}
+			current--;
+			changeSong(playlist[current])
+		}
+	</script>
+</body>
+
+</html>

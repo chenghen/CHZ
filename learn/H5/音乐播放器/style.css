@@ -1,0 +1,126 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+}
+
+audio {
+    width: 100%;
+    height: 50px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h3,
+h5 {
+    margin: 5px;
+}
+
+.stage {
+    width: 500px;
+}
+
+.card {
+    display: flex;
+    padding: 25px;
+    /* background: lightcoral; */
+    overflow: hidden;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 0 15px 0 gray;
+}
+
+.card .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("http://p1.music.126.net/-EV4XhJEJn_Ib7ebS1OHhg==/109951164820593469.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.6);
+    transform: scale(1.2);
+    z-index: -1;
+}
+
+.card .glue {
+    width: 130px;
+    height: 130px;
+    background: url("https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/cd.png");
+    background-size: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    animation: myrotate 6s linear infinite;
+    animation-play-state: paused;
+}
+
+.card .glue img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.card .finger {
+    width: 25px;
+    background: url("https://www.17sucai.com/preview/1160620/2018-10-11/Music-player/images/cd_tou.png") no-repeat;
+    background-size: 100%;
+    margin-left: -10px;
+    transform-origin: 15px 10px;
+    transform: rotate(-15deg);
+    transition: all 0.3s;
+}
+
+.stage.playing .card .finger {
+    transform: rotate(5deg);
+}
+
+.stage.playing .card .glue {
+    animation-play-state: running;
+}
+
+.card .right {
+    flex: 1;
+    margin-left: 15px;
+    color: white;
+}
+
+@keyframes myrotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.progress input {
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    padding: 10px 0px 10px 0px ;
+    margin-top: 50px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .5);
+}
+
+.list li {
+    color: #ccc;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.list li.playing {
+    color: white;
+}

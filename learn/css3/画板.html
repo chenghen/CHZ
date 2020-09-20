@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #canvas {
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <button>清屏</button>
+        <input class="color" type="color" name="" id="" />
+
+        <script>
+            /** @type {HTMLCanvasElement} */
+            // 获取元素
+            var canvas = document.querySelector("#canvas");
+            // 获取元素绘图上下文 api
+            var context = canvas.getContext("2d");
+            var color = "black";
+
+            function circle(x, y, r) {
+                context.beginPath();
+
+                context.arc(
+                    x,
+                    y,
+                    r,
+                    (Math.PI / 180) * 0,
+                    (Math.PI / 180) * 360
+                );
+
+                context.fill();
+                context.closePath();
+            }
+
+            // canvas.addEventListener('click', function (event) {
+            //     console.log(event);
+            //     circle(event.offsetX, event.offsetY, 10)
+            // })
+
+            // function onMove(params) {
+            //     circle(event.offsetX, event.offsetY, 10);
+            // }
+
+            function onMove(event) {
+                context.lineTo(event.offsetX, event.offsetY);
+                context.lineWidth = 4;
+                context.lineJoin = "round";
+                context.lineCap = "round";
+                context.miterLimit = 3;
+                context.strokeStyle = color;
+
+                context.stroke();
+            }
+
+            canvas.addEventListener("mousedown", function (e) {
+                context.beginPath();
+
+                context.moveTo(e.offsetX, e.offsetY);
+
+                canvas.addEventListener("mousemove", onMove);
+            });
+            canvas.addEventListener("mouseup", function (e) {
+                canvas.removeEventListener("mousemove", onMove);
+                context.closePath();
+            });
+
+            document.querySelector("button").onclick = function () {
+                context.clearRect(0, 0, 500, 500);
+            };
+
+            document.querySelector(".color").onchange = function () {
+                color = this.value;
+            };
+        </script>
+    </body>
+</html>

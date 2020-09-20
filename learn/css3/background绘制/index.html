@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(#16161d, #1f1f3a, #3b2f4a);
+        }
+
+        .box {
+            width: 1200px;
+            margin: 60px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 50px;
+            background: white;
+            border-radius: 206px;
+        }
+
+        .box .ban,
+        .box .tot {
+            border: 25px solid hsla(152, 51%, 29%, 0.5);
+            margin: 20px;
+            width: 265px;
+            height: 265px;
+            transition: all 3s;
+            box-shadow: rgb(170, 170, 163) 0px 0px 30px 5px;
+        }
+        .box .ban {
+            border-radius: 50%;
+        }
+
+        .nav1 {
+            background: repeating-linear-gradient(45deg, rgb(245, 137, 222) 0px, rgb(245, 137, 222) 20px, transparent 20px, transparent 30px),
+                repeating-linear-gradient(-45deg, rgb(245, 137, 222) 0px, rgb(245, 137, 222) 20px, transparent 20px, transparent 30px);
+        }
+
+        .nav2 {
+            background: repeating-linear-gradient(rgb(63, 245, 123) 0px, rgb(63, 245, 123) 30px,
+                    transparent 30px, transparent 60px),
+                repeating-linear-gradient(45deg, rgb(63, 245, 123) 0px, rgb(63, 245, 123) 30px,
+                    transparent 30px, transparent 60px);
+        }
+
+        .nav3 {
+            background: repeating-radial-gradient(rgb(241, 102, 67) 0px,
+                    rgb(241, 102, 67) 10px,
+                    transparent 10px,
+                    transparent 20px),
+                repeating-radial-gradient(rgb(241, 102, 67) 0px,
+                    rgb(241, 102, 67) 10px,
+                    transparent 10px,
+                    transparent 20px);
+        }
+        }
+
+        .box .tot {
+            border-radius: 0px;
+            border: 25px solid hsla(226, 47%, 50%, 0.5);
+        }
+
+        .nav4 {
+            background: repeating-linear-gradient(45deg, rgb(252, 206, 4) 0px,
+                    rgb(252, 206, 4) 30px,
+                    transparent 30px,
+                    transparent 60px),
+                repeating-linear-gradient(-45deg, rgb(252, 206, 4) 0px,
+                    rgb(252, 206, 4) 30px,
+                   
+                    transparent 30px,
+                    transparent 60px);
+        }
+
+        .nav5 {
+            background-image: linear-gradient(45deg, rgb(240, 155, 155) 25%, transparent 25%),
+                linear-gradient(-45deg, rgb(240, 155, 155) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgb(240, 155, 155) 75%),
+                linear-gradient(-45deg, transparent 75%, rgb(240, 155, 155) 75%);
+        }
+
+        .nav6 {
+            background: repeating-linear-gradient(to right, rgb(209, 245, 7) 0px,
+                    rgb(209, 245, 7) 30px,
+                    transparent 30px,
+                    transparent 60px),
+                repeating-linear-gradient(rgb(209, 245, 7) 0px,
+                    rgb(209, 245, 7) 30px,
+                    transparent 30px,
+                    transparent 60px);
+        }
+        @keyframes myban{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+         .ban:hover{
+           animation: myban 3s infinite alternate;
+        }
+        @keyframes mytot{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+         .tot:hover{
+            animation: mytot 3s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ban nav1"></div>
+        <div class="ban nav2"></div>
+        <div class="ban nav3"></div>
+        <div class="tot nav4"></div>
+        <div class="tot nav5"></div>
+        <div class="tot nav6"></div>
+    </div>
+
+</body>
+
+</html>

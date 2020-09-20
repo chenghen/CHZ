@@ -11,6 +11,8 @@
 - [css3效果](https://chenghen.github.io/CHZ/learn/css3/按钮/transform.html)
 - [鼠标悬停卡片](https://chenghen.github.io/CHZ/learn/css3/按钮/ann.html)
 - [loading](https://chenghen.github.io/CHZ/learn/css3/loading/loading.html)
+- [背景绘制](https://chenghen.github.io/CHZ/learn/css3/background绘制/index.html)
+- [画板](https://chenghen.github.io/CHZ/learn/css3/画板.html)
 
 ## bootstrap案例效果
 - [仿途欢网](https://chenghen.github.io/CHZ/learn/bootstrap/仿途欢/首页.html)
