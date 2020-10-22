@@ -38,8 +38,8 @@
 
 ## VUE(移动端)
 - [猿点漫画](https://chenghen.github.io/CHZ/learn/VUE/apedotcomic/index.html)
-<img src="../mygit/learn/VUE/img/yuandian.png" width = "100" height = "100" alt="猿点漫画" align=center />
+<img src="https://chenghen.github.io/CHZ/learn/VUE/img/yuandian.png" width = "100" height = "100" alt="猿点漫画" align=center />
 
 - [小鹿咖啡](https://chenghen.github.io/CHZ/learn/VUE/xlucoffee/index.html)
-<img src="../mygit/learn/VUE/img/xlu.png" width = "100" height = "100" alt="小鹿咖啡" align=center />
+<img src="https://chenghen.github.io/CHZ/learn/VUE/img/xlu.png" width = "100" height = "100" alt="小鹿咖啡" align=center />
 
