@@ -33,7 +33,7 @@ class Http {
 let http = new Http();
 
 //发起get请求
-http.get('http://api.tianapi.com/txapi/ncov/index?key=9823e6172b17190da652d51c52a2501a ').then(result => {
+http.get('https://api.tianapi.com/txapi/ncov/index?key=9823e6172b17190da652d51c52a2501a ').then(result => {
   result = JSON.parse(result);
   console.log(result);
   // console.log(result.newslist[0].desc)
@@ -186,7 +186,7 @@ function create(select) {
 let http2 = new Http2();
 
 //发起get请求
-http.get('http://api.tianapi.com/txapi/ncovcity/index?key=9823e6172b17190da652d51c52a2501a').then(result => {
+http.get('https://api.tianapi.com/txapi/ncovcity/index?key=9823e6172b17190da652d51c52a2501a').then(result => {
   result = JSON.parse(result);
   // console.log('result ==> ', result);
   console.log(result.newslist)
