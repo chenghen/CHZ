@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .original {
+                width: 300px;
+                height: 300px;
+                /* border: 1px solid red; */
+                position: relative;
+                float: left;
+            }
+            .original img {
+                width: 100%;
+            }
+            .original .mask {
+                width: 150px;
+                height: 150px;
+                background: rgba(0, 255, 173, 0.3);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                /* pointer-events: none; */
+                /* 设置元素穿透 */
+                display: none;
+            }
+            .zoom {
+                width: 300px;
+                height: 300px;
+                /* border: 1px solid red; */
+                float: left;
+                margin-left: 10px;
+                background: url("./img/0003.png");
+                background-size: 200% auto;
+                background-repeat: no-repeat;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stage">
+            <div class="original">
+                <img src="./img/0003.png" alt="" />
+                <div class="mask"></div>
+            </div>
+            <div class="zoom"></div>
+        </div>
+
+        <script>
+            // 默认2倍大小
+
+            var stage = document.getElementsByClassName("stage")[0];
+            var original = stage.getElementsByClassName("original")[0];
+            var mask = original.getElementsByClassName("mask")[0];
+            var zoom = stage.getElementsByClassName("zoom")[0];
+
+            // 鼠标移动
+            original.onmousemove = function (event) {
+                // console.log(event.pageX, event.pageY);
+                // console.log(event.offsetX, event.offsetY);
+                // 相对元素（当前触发事件）的偏移 配合穿透
+
+                var x = event.pageX - 8;
+                var y = event.pageY - 8;
+                console.log(x, y);
+                // 鼠标当前所在的位置 基于original的00点偏移
+
+                // 修正xy范围 不要让mask超出original  50-250
+
+                if (x <= 75) x = 75;
+                if (x >= 220) x = 225;
+                if (y <= 75) y = 75;
+                if (y >= 220) y = 225;
+
+                // 改变mask的定位点（-50是修正 鼠标在mask正中心）
+                mask.style.top = y - 75 + "px";
+                mask.style.left = x - 75 + "px";
+
+                // 移动右边背景定位 基于mask遮罩的定位
+                zoom.style.backgroundPositionX = -(x - 75) * 2 + "px";
+                zoom.style.backgroundPositionY = -(y - 75) * 2 + "px";
+            };
+
+            original.onmouseover = function () {
+                mask.style.display = 'block';
+                zoom.style.display = 'block';
+            }
+            original.onmouseout = function () {
+                mask.style.display = 'none';
+                zoom.style.display = 'none';
+            }
+        </script>
+    </body>
+</html>

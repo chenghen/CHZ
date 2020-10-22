@@ -1,0 +1,319 @@
+/* @media screen and (max-width: 414px) {
+  .container {
+    width: 100%;
+  }
+} */
+* {
+  padding: 0;
+  margin: 0;
+}
+.tab-content > .active {
+  padding: 10px;
+  display: block;
+}
+ul {
+  list-style: none;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+#myTabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.nav-tabs > li > a {
+  background: lightblue;
+  color: black;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  color: #337ab7;
+}
+.onebox .tab,
+.onebox .tab2 {
+  width: 100%;
+  display: flex;
+}
+.onebox .tab .tab-1,
+.onebox .tab2 .tab-1 {
+  text-align: center;
+  flex: 1;
+  width: 10px;
+  margin-right: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #fdf1f1;
+}
+.onebox .tab .tab-1 .qz,
+.onebox .tab2 .tab-1 .qz {
+  font-size: 3.2vw;
+  height: 3.2vw;
+  line-height: 3.2vw;
+  color: #222;
+  font-weight: 500;
+  margin-top: 1.6vw;
+}
+.onebox .tab .tab-1 .shu,
+.onebox .tab2 .tab-1 .shu {
+  color: #cc1e1e;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .tab .tab-1 .add,
+.onebox .tab2 .tab-1 .add {
+  color: #cc1e1e;
+}
+.onebox .tab .bg2,
+.onebox .tab2 .bg2 {
+  background-color: #f1f8f4;
+}
+.onebox .tab .bg2 .span-2,
+.onebox .tab2 .bg2 .span-2 {
+  color: #178b50;
+}
+.onebox .tab .bg2 .h5-2,
+.onebox .tab2 .bg2 .h5-2 {
+  color: #178b50;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .tab .bg3,
+.onebox .tab2 .bg3 {
+  background-color: #f3f6f8;
+}
+.onebox .tab .bg3 .span-3,
+.onebox .tab2 .bg3 .span-3 {
+  color: #4e5a65;
+}
+.onebox .tab .bg3 .h5-3,
+.onebox .tab2 .bg3 .h5-3 {
+  color: #4e5a65;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .tab .bg4,
+.onebox .tab2 .bg4 {
+  background-color: #faf2f6;
+}
+.onebox .tab .bg4 .span-4,
+.onebox .tab2 .bg4 .span-4 {
+  color: #f23a3b;
+}
+.onebox .tab .bg4 .h5-4,
+.onebox .tab2 .bg4 .h5-4 {
+  color: #f23a3b;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .tab .bg5,
+.onebox .tab2 .bg5 {
+  background-color: #faf2f6;
+}
+.onebox .tab .bg5 .span-5,
+.onebox .tab2 .bg5 .span-5 {
+  color: #ca3f81;
+}
+.onebox .tab .bg5 .h5-5,
+.onebox .tab2 .bg5 .h5-5 {
+  color: #ca3f81;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .tab .bg6,
+.onebox .tab2 .bg6 {
+  background-color: #fcf4f0;
+}
+.onebox .tab .bg6 .span-6,
+.onebox .tab2 .bg6 .span-6 {
+  color: #ca3f81;
+}
+.onebox .tab .bg6 .h5-6,
+.onebox .tab2 .bg6 .h5-6 {
+  color: #ca3f81;
+  font-size: 5.867vw;
+  line-height: 5.867vw;
+  height: 5.867vw;
+  font-weight: 600;
+}
+.onebox .list {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.onebox .list table {
+  text-align: center;
+}
+.onebox .list table thead th[c-data] {
+  height: 10.667vw;
+  text-align: center;
+  font-size: 3.2vw;
+  font-weight: 400;
+  border: 0;
+  border-right: 1px solid #fff;
+}
+.onebox .list table thead th[c-data]:first-child {
+  margin-left: 16px;
+  background-color: #f5f5f5;
+}
+.onebox .list table thead th[c-data]:first-child span {
+  margin-left: 16px;
+  display: block;
+}
+.onebox .list table thead th[c-data]:nth-child(2) {
+  background-color: #fcf2e8;
+  color: #ff5d00;
+}
+.onebox .list table thead th[c-data]:nth-child(3) {
+  background-color: #fdeeee;
+  color: #f55253;
+}
+.onebox .list table thead th[c-data]:nth-child(4) {
+  background-color: #e9f7ec;
+  color: #178b50;
+}
+.onebox .list table thead th[c-data]:nth-child(5) {
+  background-color: #f3f6f8;
+  color: #4e5a65;
+}
+.onebox .list table thead th[c-data]:nth-child(6) {
+  background-color: #f5f5f5;
+}
+.onebox .tbody {
+  width: 100%;
+  padding-bottom: 20px;
+}
+.onebox .tbody .city-lists {
+  background: lightgray;
+  width: 100%;
+  justify-content: space-between;
+}
+.onebox .tbody .city-lists li {
+  width: 19%;
+  display: inline-block;
+  height: 13.667vw;
+  text-align: center;
+  font-size: 3.2vw;
+  font-weight: 400;
+  line-height: 13.667vw;
+}
+.onebox .tbody .city-lists li span {
+  line-height: initial;
+  display: inline-block;
+}
+.onebox .tbody .city-lists li:nth-child(1) {
+  background: lightskyblue;
+}
+.onebox .tbody .boxcap {
+  display: none;
+}
+.onebox .tbody .cude {
+  list-style: none;
+  position: relative;
+}
+.onebox .tbody .cude .bu ul {
+  padding: 5px;
+  display: flex;
+  background: #20a5b226;
+  margin: 0 0px 0;
+  border-bottom: 1px solid white;
+}
+.onebox .tbody .cude .bu ul li {
+  width: 20%;
+  height: 10.667vw;
+  text-align: center;
+  font-size: 3.2vw;
+  font-weight: 400;
+  padding: 5px;
+  float: left;
+}
+.copy {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.copy table thead tr th[c-data] {
+  height: 10.667vw;
+  text-align: center;
+  font-size: 3.2vw;
+  font-weight: 400;
+  border: 0;
+  border-right: 1px solid #fff;
+}
+.copy table thead tr th[c-data]:first-child {
+  margin-left: 16px;
+  background-color: #f5f5f5;
+}
+.copy table thead tr th[c-data]:nth-child(2) {
+  background-color: #fcf2e8;
+  color: #ff5d00;
+}
+.copy table thead tr th[c-data]:nth-child(3) {
+  background-color: #fdeeee;
+  color: #f55253;
+}
+.copy table thead tr th[c-data]:nth-child(4) {
+  background-color: #e9f7ec;
+  color: #178b50;
+}
+.copy table thead tr th[c-data]:nth-child(5) {
+  background-color: #f3f6f8;
+  color: #4e5a65;
+}
+.dy {
+  width: 100%;
+  padding-bottom: 20px;
+}
+.dy .provinceming {
+  width: 100%;
+  float: left;
+}
+.dy .provinceming .shengji {
+  background: lightgray;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  justify-content: space-between;
+}
+.dy .provinceming .shengji li {
+  width: 19%;
+  display: inline-block;
+}
+.dy .provinceming .shengji li:nth-child(1) {
+  padding-left: 10px;
+  background: lightskyblue;
+}
+.dy .provinceming .copen {
+  display: none;
+  padding: 5px;
+  background: #20a5b226;
+  margin: 0 0px 0;
+  border-bottom: 1px solid white;
+}
+.dy .provinceming .copen .none ul {
+  border-bottom: 1px solid white;
+}
+.dy .provinceming .copen .none ul li {
+  width: 19%;
+  display: inline-block;
+  height: 13.667vw;
+  text-align: center;
+  font-size: 3.2vw;
+  padding-top: 14px;
+  font-weight: 400;
+}

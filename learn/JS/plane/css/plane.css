@@ -1,0 +1,84 @@
+body{
+	margin: 0 auto;
+}
+
+.auto-img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.plane{
+	width: 414px;
+	height: 680px;
+	margin: 30px auto 0;
+	box-shadow: 2px 2px 12px 1px #ddd;
+}
+.start{
+	height: 100%;
+	background: url("../images/startgame.png") no-repeat center center;
+	background-size: cover;
+	position: relative;
+}
+.begin{
+	position: absolute;
+	top: 500px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: #8F9293;
+	font-size: 1.4em;
+	border-bottom: 3px solid #6F6F6F;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+}
+.begin:active{
+	border-bottom: none;
+}
+
+.game{
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	cursor: none;
+	display: none;
+}
+
+.myplane{
+	position: absolute;
+	left: 0;
+	top: calc(680px - 73px);
+	width: 60px;
+	height: 73px;
+	z-index: 3;
+}
+
+.bg{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../images/bg.png") no-repeat center center;
+	background-size: cover;
+	z-index: 1;
+}
+.bg1{
+	top: 0;
+}
+.bg2{
+	top: -680px;
+}
+
+.layer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 4;
+}

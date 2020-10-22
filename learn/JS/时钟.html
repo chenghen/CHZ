@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            html,
+            body {
+                height: 100%;
+                overflow: hidden;
+                margin: 0;
+                background: black;
+            }
+            ul.time {
+                /* margin: 0; */
+                padding: 0;
+                list-style: none;
+                /* overflow: hidden; */
+                width: 400px;
+                margin: 0 auto;
+                position: relative;
+                top: 50%;
+                margin-top: -50px;
+            }
+            ul.time li {
+                float: left;
+                transition: all 0.3s;
+            }
+            ul.time li div {
+                font-size: 60px;
+                width: 50px;
+                height: 100px;
+                /* background: red; */
+                text-align: center;
+                color: rgb(129, 129, 129);
+            }
+            ul.time li div.current {
+                color: white;
+            }
+            ul.time li div.neighbour {
+                color: rgb(223, 223, 223);
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="time">
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+            </li>
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+            </li>
+            <li><div>:</div></li>
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </li>
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+            </li>
+            <li><div>:</div></li>
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </li>
+            <li class="num">
+                <div>0</div>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+            </li>
+        </ul>
+
+        <script>
+            var lis = document.querySelectorAll("ul.time li.num");
+
+            function xx(n) {
+                if (n < 10) {
+                    return "0" + n;
+                } else {
+                    return String(n);
+                }
+            }
+
+            function showNum(element, n) {
+                element.style.marginTop = n * -100 + "px";
+            }
+
+            setInterval(function () {
+                var d = new Date();
+                var h = xx(d.getHours());
+                var m = xx(d.getMinutes());
+                var s = xx(d.getSeconds());
+                var arr = [];
+                arr = arr.concat(h.split(""));
+                arr = arr.concat(m.split(""));
+                arr = arr.concat(s.split(""));
+                // console.log(arr);
+
+                arr.forEach(function (element, index) {
+                    showNum(lis.item(index), element);
+                    // console.log(lis.item(index).children.item(Number(element)))
+                    // lis.item(index).children.item(Number(element)).classList.add('current')
+                    var divs = lis.item(index).querySelectorAll("div");
+                    // console.log(divs)
+                    divs.forEach(function (div, i) {
+                        if (Number(element) === i) {
+                            div.classList.add("current");
+                            div.classList.remove("neighbour");
+                        } else if (Number(element) === i - 1 || Number(element) === i + 1) {
+                            div.classList.add("neighbour");
+                            div.classList.remove("current");
+                        } else {
+                            div.className = "";
+                        }
+                    });
+                });
+            }, 1000);
+        </script>
+
+        <!-- 拓展思考 http://www.jq22.com/yanshi15593 -->
+    </body>
+</html>

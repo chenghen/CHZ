@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js"></script>
+    <script src="dd.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class=""><a href="#home" id="home-tab" role="tab" data-toggle="tab"
+                        aria-controls="home" aria-expanded="false">国内疫情</a></li>
+
+                <li role="presentation" class="active"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab"
+                        aria-controls="profile" aria-expanded="true">海外疫情</a></li>
+
+                <li role="presentation" class=""><a href="#pro" role="tab" id="pro-tab" data-toggle="tab"
+                        aria-controls="profile" aria-expanded="true">全球疫情</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade" id="home" aria-labelledby="home-tab">
+                    <!-- one -->
+                    <div class="onebox">
+                        <div class="tab">
+                            <div class="tab-1">
+                                <div>
+                                    较上日
+                                    <span class="span-1">
+                                        
+                                    </span> 
+                                </div>
+                                <h5 class="shu"></h5>
+                                
+                                <div class="qz">累计确诊</div>
+                            </div>
+                            <div class="tab-1 bg2">
+                                <div>
+                                    昨日
+                                    <span class="span-2">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-2"></h5>
+                               
+                                <div class="qz">累计治愈</div>
+                            </div>
+                            <div class="tab-1 bg3">
+                                <div>
+                                    昨日
+                                    <span class="span-3">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-3"></h5>
+                                
+                                <div class="qz">累计死亡</div>
+                            </div>
+                           
+                         
+                        </div>
+                        <div class="tab2">
+                            <div class="tab-1 bg4">
+                                <div>
+                                    昨日
+                                    <span class="span-4">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-4"></h5>
+                                
+                                <div class="qz">现有确诊</div>
+                            </div>
+                            <div class="tab-1 bg5">
+                                <div>
+                                    昨日
+                                    <span class="span-5">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-5"></h5>
+                               
+                                <div class="qz">现存重症人数</div>
+                            </div>
+                            <div class="tab-1 bg6">
+                                <div>
+                                    昨日
+                                    <span class="span-6">
+                                        +6
+                                    </span>
+                                </div>
+                                <h5 class="h5-6">2029</h5>
+                               
+                                <div class="qz">境外输入</div>
+                            </div>
+                           
+                           
+                        </div>
+
+                        <div class="list">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                      <th c-data class="area">
+                                          <span c-data>地区</span>
+                                      </th>
+                                      <th c-data>现有确诊</th>
+                                      <th c-data>累计确诊</th>
+                                      <th c-data>治愈</th>
+                                      <th c-data>死亡</th>
+                                    </tr>
+                                </thead>
+                               
+                            </table>
+                        </div>
+                        <div class="tbody">
+                            <!-- <ul class="city-lists">
+                                <li class="fl"><span>新疆维吾尔自治区</span></li>
+                                <li class="fl"><span>95</span></li>
+                                <li class="fl"><span>171</span></li>
+                                <li class="fl"><span>3</span></li>
+                                <li class="fl"><span>73</span></li>
+                            </ul> -->
+                            
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade active in" id="profile" aria-labelledby="profile-tab">
+                    
+                    <div class="copy">
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                  <th c-data class="area">
+                                      <span c-data>地区</span>
+                                  </th>
+                                  <th c-data>现有确诊</th>
+                                  <th c-data>累计确诊</th>
+                                  <th c-data>治愈</th>
+                                  <th c-data>死亡</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="dy">
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade active " id="pro" aria-labelledby="pro-tab">
+                    <!-- 第三个 -->
+                    <div class="onebox">
+                        <div class="tab">
+                            <div class="tab-1">
+                                <div>
+                                    较上日
+                                    <span class="span-1 qguo1">
+                                        
+                                    </span> 
+                                </div>
+                                <h5 class="shu cz1"></h5>
+                                
+                                <div class="qz">累计确诊</div>
+                            </div>
+                            <div class="tab-1 bg2">
+                                <div>
+                                    昨日
+                                    <span class="span-2 qguo2">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-2 cz2"></h5>
+                               
+                                <div class="qz">累计治愈</div>
+                            </div>
+                            <div class="tab-1 bg3">
+                                <div>
+                                    昨日
+                                    <span class="span-3 qguo3">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-3 cz3"></h5>
+                                
+                                <div class="qz">累计死亡</div>
+                            </div>
+                           
+                         
+                        </div>
+                        <div class="tab2">
+                            <div class="tab-1 bg4">
+                                <div>
+                                    昨日
+                                    <span class="span-4 qguo4">
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-4 cz4"></h5>
+                                
+                                <div class="qz">现有确诊</div>
+                            </div>
+                            <div class="tab-1 bg5">
+                                <div>
+                                    昨日
+                                    <span class="span-5">+69116
+                                        
+                                    </span>
+                                </div>
+                                <h5 class="h5-5">4170333</h5>
+                               
+                                <div class="qz">美国确诊</div>
+                            </div>
+                            <div class="tab-1 bg6">
+                                <div>
+                                    昨日
+                                    <span class="span-6">
+                                        +58080
+                                    </span>
+                                </div>
+                                <h5 class="h5-6">2289951</h5>
+                               
+                                <div class="qz">巴西确诊</div>
+                            </div>
+                           
+                           
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

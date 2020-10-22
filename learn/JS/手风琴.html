@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body{
+                background: black;
+            }
+            .stage{
+                margin: auto;
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+                width: 500px;
+                /* background: red; */
+                position: relative;
+            
+            }
+            ul li {
+                /* float: left; */
+                width: 200px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.8s;
+            }
+
+            ul li .mask {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.5);
+                transition: inherit;
+                color: white;
+                overflow: hidden;
+            }
+            h5,
+            h6 {
+                margin: 0;
+            }
+            h5 {
+                color: aquamarine;
+            }
+
+            ul li .mask .info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: inherit;
+                font-size: 14px;
+                width: 100%;
+                margin-left: 10%;
+            }
+            ul li .mask .desc {
+                position: absolute;
+                bottom: 0;
+                left: 100%;
+                transition: inherit;
+                /* display: none; */
+                font-size: 24px;
+                width: 100%;
+                margin-left: 10%;
+
+            }
+            ul li.active .mask {
+                /* opacity: 0.3; */
+                /* background: rgba(0, 0, 0, 0); */
+                height: 20%;
+            }
+
+            ul li.active .mask .info {
+                left: -100%;
+            }
+            ul li.active .mask .desc {
+                left: 0;
+            }
+
+            ul li img {
+                width: 100%;
+                display: block;
+            }
+            ul li:nth-of-type(1) {
+                position: relative;
+            }
+            /* ul li:nth-of-type(2) {
+                left: 200px;
+            }
+            ul li:nth-of-type(3) {
+                left: 300px;
+            }
+            ul li:nth-of-type(4) {
+                left: 400px;
+            } */
+        </style>
+    </head>
+    <body>
+        <ul class="stage">
+            <li>
+                <img src="./img/datouwang1.jpg" alt="" />
+                <div class="mask">
+                    <div class="info">
+                        <h5>胜率</h5>
+                        <h6>NO.1</h6>
+                    </div>
+                    <div class="desc">
+                        <h6>猪八戒</h6>
+                        <h5>胜率NO.1</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="./img/datouwang2.jpg" alt="" />
+                <div class="mask">
+                    <div class="info">
+                        <h5>出场</h5>
+                        <h6>NO.1</h6>
+                    </div>
+                    <div class="desc">
+                        <h6>董卓</h6>
+                        <h5>胜率NO.1</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="./img/datouwang3.jpg" alt="" />
+                <div class="mask">
+                    <div class="info">
+                        <h5>MVP</h5>
+                        <h6>NO.1</h6>
+                    </div>
+                    <div class="desc">
+                        <h6>吕布</h6>
+                        <h5>胜率NO.1</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="./img/datouwang4.jpg" alt="" />
+                <div class="mask">
+                    <div class="info">
+                        <h5>胜率</h5>
+                        <h6>NO.1</h6>
+                    </div>
+                    <div class="desc">
+                        <h6>孙尚香</h6>
+                        <h5>胜率NO.1</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="./img/datouwang5.jpg" alt="" />
+                <div class="mask">
+                    <div class="info">
+                        <h5>胜率</h5>
+                        <h6>NO.1</h6>
+                    </div>
+                    <div class="desc">
+                        <h6>墨子</h6>
+                        <h5>胜率NO.1</h5>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 
+            寻找规律
+            显示0 0-0 1-200 2-300 3-400
+            显示1 0-0 1-100 2-300 3-400
+            显示2 0-0 1-100 2-200 3-400
+            显示3 0-0 1-100 2-200 3-300
+            当前显示的 前面的（）定位 规律是 0 +=100
+            后面的定位 当前高亮的元素 定位  + 200
+         -->
+
+        <script>
+            // 200完全显示图片的宽度 100剩余的宽度 除以 剩余的个数 500-200=300 / 3 =100
+            var lis = document.getElementsByTagName("li");
+
+            // lis HTML集合 不能使用forEach
+            // lis.forEach(function (element,index) {
+            //     console.log(element)
+            // });
+
+            function activeIndex(current) {
+                console.log(current);
+
+                for (var i = 0; i < lis.length; i++) {
+                    if (i <= current) {
+                        // 处理前面的 // 处理当前的
+                        lis[i].style.left = i * (300 / 4) + "px";
+                    } else {
+                        // 处理后面的
+                        // console.log(200 + (i - 1) * (300 / 4))
+                        lis[i].style.left = 200 + (i - 1) * (300 / 4) + "px";
+                    }
+
+                    // 当前的增加上active
+                    if (i == current) {
+                        lis[i].classList.add("active");
+                    } else {
+                        lis[i].classList.remove("active");
+                    }
+                }
+            }
+
+            activeIndex(0);
+
+            // for (var i = 0; i < lis.length; i++) {
+            //     lis[i].index = i;
+            //     lis[i].onclick = function () {
+            //         activeIndex(this.index);
+            //     };
+            // }
+
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].index = i
+                lis[i].onmouseover = function () {
+                    activeIndex(this.index)
+                }
+            }
+        </script>
+        <!-- 作业 京东倒计时 https://www.17sucai.com/pins/demo-show?id=33110  -->
+        <!-- 拓展 尝试  http://www.jq22.com/yanshi21937 -->
+
+        <!-- https://www.17sucai.com/pins/demo-show?id=13909 -->
+    </body>
+</html>

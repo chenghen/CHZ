@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul class="time">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            function xx(n) {
+                if (n < 10) {
+                    return "0" + n;
+                } else {
+                    return String(n);
+                }
+            }
+            var lis = document.querySelectorAll("li");
+            setInterval(function () {
+                var d = new Date();
+                var h = xx(d.getHours());
+                var m = xx(d.getMinutes());
+                var s = xx(d.getSeconds());
+                // console.log(h, m, s);
+                var arr = [h, m, s];
+
+                lis.forEach(function (element, index) {
+                    element.innerText = arr[index];
+                });
+                showNub(s.slice(1))
+                
+            }, 1000);
+        </script>
+
+        <div class="stage">
+            <div class="content"></div>
+        </div>
+        <style>
+            .stage {
+                width: 100px;
+                height: 100px;
+                margin-left: 100px;
+                background: #49dda1;
+                text-align: center;
+                line-height: 100px;
+                font-size: 68px;
+                color: #afafaf;
+       
+            }
+            .stage .content {
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+            .stage div {
+                transition: all 0.3s;
+            }
+        </style>
+        <script>
+            var content = document.querySelector(".content");
+            for (var i = 0; i < 10; i++) {
+                var node = document.createElement("div");
+                var text = document.createTextNode(i);
+                node.appendChild(text);
+                console.log(node);
+                content.appendChild(node);
+            }
+
+
+            function showNub(n) {
+                content.style.top = n * -100 + "px";
+            }
+        </script>
+    </body>
+</html>

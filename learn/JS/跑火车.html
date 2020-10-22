@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .stage {
+                text-align: center;
+               
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 350px;
+                height: 350px;
+                background: lightblue;
+                margin: 0 auto;
+                position: relative;
+            }
+            li {
+                width: 100px;
+                height: 100px;
+                /* float: left; */
+                position: absolute;
+                line-height: 100px;
+                z-index: 99;
+            }
+            li img{
+                width: 100%;
+                height: 100%;
+                /* opacity: 0.5; */
+            }
+            li:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+            li:nth-child(2) {
+                top: 0;
+                left: 125px;
+            }
+            li:nth-child(3) {
+                top: 0;
+                left: 250px;
+            }
+            li:nth-child(4) {
+                top: 125px;
+                left: 250px;
+            }
+            li:nth-child(5) {
+                top: 250px;
+                left: 250px;
+            }
+            li:nth-child(6) {
+                top: 250px;
+                left: 125px;
+            }
+            li:nth-child(7) {
+                top: 250px;
+                left: 0;
+            }
+            li:nth-child(8) {
+                top: 125px;
+                left: 0;
+            }
+            li.active {
+                border: 2px solid orangered;
+               
+            }
+            button{
+                background-color: #49dda1;
+                list-style: none;
+                margin-top: 10px;
+                padding: 10px 20px;
+                border: none;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stage">
+            <ul class="box">
+                <li>
+                    <img src="./img/0001.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0002.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0003.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0004.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0005.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0001.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0004.png" alt="">
+                </li>
+                <li>
+                    <img src="./img/0005.png" alt="">
+                </li>
+            </ul>
+            <button>点击</button>
+        </div>
+        <script>
+            // var arr = new Array()
+            // var arr = new Array(11, 22);
+            // var arr = new Array(9);
+
+            // 定时器 第一个参数是函数 第二个参数 是时间 单位ms 1s=1000ms
+            // setTimeout(function () {
+            //     console.log('时间到了')
+            // }, 3000)
+            // 时间到了做什么事 函数参数执行一次
+
+            // 定时器会返回一个 id 根据id 区分不同的定时器
+            // var x = setInterval(function () {
+            //     console.log("时间到了");
+            // }, 1000);
+            // 周期执行 每隔多久做什么事 函数参数执行多次
+
+            // 取消定时器
+            // clearInterval(id)
+            // clearTimeout(id)
+
+            var lis = document.getElementsByTagName("li");
+            var btn = document.getElementsByTagName("button")[0];
+
+            // 生成随机数 把随机数当成中将的格子
+            // function generateNum() {
+            //     return Math.floor(Math.random() * lis.length)
+            // }
+
+            var current = 0;
+            var canClick = true;
+            // 可以点击
+            btn.onclick = function () {
+                // 判断是否抽奖已经结束
+                if (canClick) {
+                    current %= 8;
+                    console.log("点击了");
+
+                    // 确定中将信息
+                    var x = Math.floor(Math.random() * lis.length);
+                    console.log("中奖信息", x);
+
+                    // 视图更新
+                    var id = setInterval(function () {
+                        // 废弃
+                        // 0-7   当>7的时候 取0
+                        // current = current >= lis.length - 1 ? 0 : ++current;
+
+                        current++;
+
+                        console.log(current, current % 8);
+
+                        // 取消掉其他的active
+                        for (var i = 0; i < lis.length; i++) {
+                            if (i == current % 8) {
+                                lis[i].classList.add("active");
+                            } else {
+                                lis[i].classList.remove("active");
+                            }
+                        }
+
+                        // 判断 如果当前高亮的 就是中奖信息 停止定时器
+                        // 本次抽奖结束
+                        if (current == x + 8 * 10) {
+                            // 取消本次抽奖的定时器
+                            clearInterval(id);
+
+                            // 设置可以进行下一次抽奖
+                            canClick = true;
+                        }
+                    }, 50);
+                }
+
+                canClick = false;
+            };
+
+            // 动画帧
+            // 动画 有变化连续 电影原理 每秒24帧  1000/24=41.67
+
+            // 显示器极限 60HZ刷新率 1000/60 = 16.67
+        </script>
+    </body>
+</html>
